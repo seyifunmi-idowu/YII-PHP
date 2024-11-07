@@ -1,14 +1,12 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 $this->title = 'Create Course';
 ?>
 <div class="course-create">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
 
     <div class="course-form">
-        <?php $form = ActiveForm::begin(); ?> 
+        <?php $form = \yii\widgets\ActiveForm::begin(); ?> 
 
         <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -23,9 +21,9 @@ $this->title = 'Create Course';
         ) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <?= \yii\helpers\Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
         </div>
 
-        <?php ActiveForm::end(); ?>
+        <?php \yii\widgets\ActiveForm::end(); ?>
     </div>
 </div>

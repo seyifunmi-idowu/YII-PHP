@@ -1,14 +1,12 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 $this->title = 'Create Course Enrollment';
 ?>
 <div class="course-enrollment-create">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
 
     <div class="course-enrollment-form">
-        <?php $form = ActiveForm::begin(); ?>
+        <?php $form = \yii\widgets\ActiveForm::begin(); ?>
 
         <!-- Dropdown for Course -->
         <?= $form->field($model, 'course_id')->dropDownList(
@@ -23,9 +21,9 @@ $this->title = 'Create Course Enrollment';
         ) ?>
 
         <div class="form-group">
-            <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <?= \yii\helpers\Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
         </div>
 
-        <?php ActiveForm::end(); ?>
+        <?php \yii\widgets\ActiveForm::end(); ?>
     </div>
 </div>

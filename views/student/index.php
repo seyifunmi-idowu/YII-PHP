@@ -1,16 +1,14 @@
 <?php
-use yii\grid\GridView;
-use yii\helpers\Html;
 
 $this->title = 'Students';
 ?>
 <div class="student-index">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
     <p>
-        <?= Html::a('Create Student', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= \yii\helpers\Html::a('Create Student', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?= \yii\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',

@@ -2,12 +2,12 @@
 $this->title = 'Teachers';
 ?>
 <div class="teacher-index">
-    <h1><?= yii\helpers\Html::encode($this->title) ?></h1>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
     <p>
-        <?= yii\helpers\Html::a('Create Teacher', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= \yii\helpers\Html::a('Create Teacher', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= yii\grid\GridView::widget([
+    <?= \yii\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',

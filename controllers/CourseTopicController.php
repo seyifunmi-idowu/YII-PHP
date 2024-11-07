@@ -3,17 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CourseTopic;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\data\ActiveDataProvider;
 
 class CourseTopicController extends Controller
 {
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => CourseTopic::find(),
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => \app\models\CourseTopic::find(),
         ]);
 
         return $this->render('index', [
@@ -30,7 +27,7 @@ class CourseTopicController extends Controller
 
     public function actionCreate()
     {
-        $courseTopic = new CourseTopic();
+        $courseTopic = new \app\models\CourseTopic();
 
         if ($courseTopic->load(Yii::$app->request->post()) && $courseTopic->save()) {
             return $this->redirect(['view', 'id' => $courseTopic->id]);
@@ -43,21 +40,21 @@ class CourseTopicController extends Controller
 
     protected function findModel($id)
     {
-        if (($courseTopic = CourseTopic::findOne($id)) !== null) {
+        if (($courseTopic = \app\models\CourseTopic::findOne($id)) !== null) {
             return $courseTopic;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new yii\web\NotFoundHttpException('The requested page does not exist.');
     }
 
     public function actionDelete($id)
     {
-        $model = CourseTopic::findOne($id);
+        $model = \app\models\CourseTopic::findOne($id);
         if ($model !== null) {
             $model->delete();
             return $this->redirect(['index']);
         }
-        throw new NotFoundHttpException('The requested course topic does not exist.');
+        throw new yii\web\NotFoundHttpException('The requested course topic does not exist.');
     }
 }
 

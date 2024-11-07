@@ -1,16 +1,13 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-use yii\grid\GridView;
 
 $this->title = $model->name;
 ?>
 <div class="student-view">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= \yii\helpers\Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= \yii\helpers\Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this student?',
@@ -19,7 +16,7 @@ $this->title = $model->name;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?= \yii\widgets\DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
@@ -34,7 +31,7 @@ $this->title = $model->name;
     ]) ?>
 
     <h2>Enrolled Courses</h2>
-    <?= GridView::widget([
+    <?= \yii\grid\GridView::widget([
         'dataProvider' => new \yii\data\ActiveDataProvider([
             'query' => $model->getCourses(),
         ]),
