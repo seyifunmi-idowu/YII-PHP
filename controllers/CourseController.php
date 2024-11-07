@@ -3,17 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Course;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\data\ActiveDataProvider;
 
 class CourseController extends Controller
 {
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Course::find(),
+        $dataProvider = new \yii\data\ActiveDataProvider([
+            'query' => \app\models\Course::find(),
         ]);
 
         return $this->render('index', [
@@ -30,7 +27,7 @@ class CourseController extends Controller
 
     public function actionCreate()
     {
-        $course = new Course();
+        $course = new \app\models\Course();
 
         if ($course->load(Yii::$app->request->post()) && $course->save()) {
             return $this->redirect(['view', 'id' => $course->id]);
@@ -43,20 +40,20 @@ class CourseController extends Controller
 
     protected function findModel($id)
     {
-        if (($course = Course::findOne($id)) !== null) {
+        if (($course = \app\models\Course::findOne($id)) !== null) {
             return $course;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new \yii\web\NotFoundHttpException('The requested page does not exist.');
     }
 
     public function actionDelete($id)
     {
-        $model = Course::findOne($id);
+        $model = \app\models\Course::findOne($id);
         if ($model !== null) {
             $model->delete();
             return $this->redirect(['index']);
         }
-        throw new NotFoundHttpException('The requested course does not exist.');
+        throw new \yii\web\NotFoundHttpException('The requested course does not exist.');
     }
 }
