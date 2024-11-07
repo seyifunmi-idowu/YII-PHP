@@ -39,14 +39,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Students', 'url' => ['/student/index']],
+            ['label' => 'Home', 'url' => ['/teacher/index']],
             ['label' => 'Teachers', 'url' => ['/teacher/index']],
+            ['label' => 'Students', 'url' => ['/student/index']],
             ['label' => 'Courses', 'url' => ['/course/index']],
             ['label' => 'Course Topics', 'url' => ['/course-topic/index']],
             ['label' => 'Enrollments', 'url' => ['/course-enrollment/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
 
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
